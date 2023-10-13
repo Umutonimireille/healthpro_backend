@@ -1,5 +1,16 @@
 {
-  "dependencies": {
+ "name": "healthproplus",
+  "version": "1.0.0",
+  "description": "health tracking software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "build":"npm run build"
+  },
+  "author": "UmutoniMireille",
+  "license": "MIT",
+   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -10,14 +21,10 @@
     "sequelize-cli": "^6.6.1",
     "sqlite3": "^5.1.6"
   },
-  "name": "healthproplus",
-  "version": "1.0.0",
-  "description": "health tracking software",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "devDependencies": {
+    "fsevents": "^2.3.3"
   },
-  "author": "UmutoniMireille",
-  "license": "MIT"
+  "optionalDependencies": {
+    "fsevents": "^2.3.3"
+  }
 }
