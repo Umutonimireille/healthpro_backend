@@ -1,7 +1,7 @@
 var sqlite3 = require("sqlite3").verbose();
 // var md5 = require("md5");
 
-const DBSOURCE = "db.sqlite";
+const DBSOURCE = "healthpro.db";
 
 let db = new sqlite3.Database(DBSOURCE, (err) => {
   if (err) {
@@ -9,12 +9,12 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
     console.error(err.message);
     throw err;
   } else {
-    console.log("Connected to the SQLite databasess.");
+    console.log("Connected to the SQLite database.");
     db.run(
-      `CREATE TABLE user (
+      `CREATE TABLE patient (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             patientName text, 
-            patientNid text UNIQUE, 
+            patientNid text , 
             patientRequestSickness text, 
             heartRate text, 
             bodyTemperature text
@@ -25,8 +25,10 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           // Table already created
         } else {
           // Table just created, creating some rows
-          var insert =
-            "INSERT INTO user (patientName, patientNid, patientRequestSickness,heartRate,bodyTemperature) VALUES (?,?,?)";
+          
+           var insert =
+  "INSERT INTO patient (patientName, patientNid, patientRequestSickness, heartRate, bodyTemperature) VALUES (?, ?, ?, ?, ?)";
+
          
         }
       }

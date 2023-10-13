@@ -8,7 +8,7 @@ const User = sequelize.define("User", {
     allowNull: false
   },
   patientNid: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   patientRequestSickness: {

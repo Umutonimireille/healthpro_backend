@@ -121,7 +121,7 @@ module.exports.getUser = () => {
   };
  
   var sql =
-    "INSERT INTO user (patientName, patientNid, patientRequestSickness,heartRate,bodyTemperature) VALUES (?,?,?,?,?)";
+    "INSERT INTO patient (patientName, patientNid, patientRequestSickness,heartRate,bodyTemperature) VALUES (?,?,?,?,?)";
   var params = [data.patientName, data.patientNid, data.patientRequestSickness,data.heartRate,data.bodyTemperature];
   db.run(sql, params, function (err, result) {
     if (err) {
