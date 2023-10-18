@@ -13,7 +13,7 @@ module.exports.deleteUser = () => {
   return async (req, res) => {
   const { id } = req.params;
   try {
-    const sql = "DELETE FROM User WHERE id = ?";
+    const sql = "DELETE FROM patient WHERE id = ?";
     db.run(sql, [id], function (err) {
       if (err || this.changes === 0) {
         return res.status(404).json({ error: "User not found." });
@@ -46,7 +46,7 @@ module.exports.updateUser = () => {
   } = req.body;
   try {
     const sql =
-      "UPDATE User SET patientName = ?, patientNid = ?, patientRequestSickness = ?, heartRate = ?, bodyTemperature = ? WHERE id = ?";
+      "UPDATE patient SET patientName = ?, patientNid = ?, patientRequestSickness = ?, heartRate = ?, bodyTemperature = ? WHERE id = ?";
     db.run(
       sql,
       [
@@ -73,7 +73,7 @@ module.exports.updateUser = () => {
 module.exports.getAllUsers = () => {
 
   return async  (req, res, next) => {
-  var sql = "select * from user";
+  var sql = "select * from patient";
   var params = [];
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -92,7 +92,7 @@ module.exports.getAllUsers = () => {
 module.exports.getUser = () => {
 
  return async (req, res, next) => {
-  var sql = "select * from user where id = ?";
+  var sql = "select * from patient where id = ?";
   var params = [req.params.id];
   db.get(sql, params, (err, row) => {
     if (err) {
